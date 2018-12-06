@@ -1,3 +1,11 @@
+# this script allows to check battery charge info
+# it creates (if needed) folder named 'power_logs' in current directory 
+# together with file named as current date in this folder
+# then it appends line to file with current time and battery percantage
+
+# to execute program periodically run it with 'watch'
+# watch -n <time interval in seconds> ./battery_logger.sh
+
 b=`upower -e | grep "BAT"`
 p=`upower -i $b | grep percentage`
 p=$(echo $p | cut -d ' ' -f 2)
